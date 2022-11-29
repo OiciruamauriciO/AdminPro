@@ -30,7 +30,7 @@ import { PagesComponent } from './pages.component';
         FormsModule,
         SharedModule,
         RouterModule,
-        ComponentsModule
+        ComponentsModule        
     ]
 })
 export class PagesModule { }
