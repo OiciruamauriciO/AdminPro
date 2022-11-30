@@ -39,4 +39,7 @@ export class Grafica1Component {
   ];  
 
   public data1: number[] = [10, 15, 40];
+  public data2: number[] = [34, 23, 10];
+  public data3: number[] = [24, 44, 9];
+  public data4: number[] = [13, 34, 5];
 }

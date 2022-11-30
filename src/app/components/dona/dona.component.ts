@@ -14,17 +14,19 @@ export class DonaComponent implements OnInit{
   public expectedString4: string = 'Download Sales 4';
 
   ngOnInit(): void {
-    console.log(this.labels);
     this.labelsObserver(this.labels[0]);
+    this.dataObserver(this.data);
   }
 
   @Input('title') title: string = 'Sin Título';
 
   @Input('labels') labels: string[] = [
-    'Sin label',
+    'Sin label', 
     'Sin label',
     'Sin label',
   ];
+  
+  @Input('data') data: number[] = [];
 
   // Doughnut
   public doughnutChartLabels: string[] = this.labels;
@@ -33,7 +35,7 @@ export class DonaComponent implements OnInit{
     labels: this.doughnutChartLabels,
     datasets: [
       {
-        data: [350, 450, 100],
+        data: [100, 450, 120],
         backgroundColor: ['#759eff', '#75c7ff', '#525558'],
       },
       {
@@ -71,31 +73,12 @@ export class DonaComponent implements OnInit{
   }
 
   labelsObserver(element: string){
-    if(element===this.expectedString1){
-      this.doughnutChartLabels[0]=this.labels[0];
-      this.doughnutChartLabels[1]=this.labels[1];
-      this.doughnutChartLabels[2]=this.labels[2];
-    } else if(element===this.expectedString2) {
-      this.doughnutChartLabels[0]=this.labels[0];
-      this.doughnutChartLabels[1]=this.labels[1];
-      this.doughnutChartLabels[2]=this.labels[2];
-    } else if(element===this.expectedString3) {
-      this.doughnutChartLabels[0]=this.labels[0];
-      this.doughnutChartLabels[1]=this.labels[1];
-      this.doughnutChartLabels[2]=this.labels[2];
-    } else if(element===this.expectedString4) {
-      this.doughnutChartLabels[0]=this.labels[0];
-      this.doughnutChartLabels[1]=this.labels[1];
-      this.doughnutChartLabels[2]=this.labels[2];
-    } else { 
-      console.log("Unknown error or string is not coincident"); 
-      this.doughnutChartLabels[0]=this.labels[0];
-      this.doughnutChartLabels[1]=this.labels[1];
-      this.doughnutChartLabels[2]=this.labels[2];
-    }
+    this.doughnutChartLabels[0]=this.labels[0];
+    this.doughnutChartLabels[1]=this.labels[1];
+    this.doughnutChartLabels[2]=this.labels[2];
   }
-
-/*   dataObserver(element: Number){
-    
-  } */
+  
+  dataObserver(element: any){
+    this.doughnutChartData.datasets[0].data=element;
+  }
 }
