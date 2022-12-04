@@ -8,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PagesComponent implements OnInit {
 
+  public defaultUrlTheme = './assets/css/colors/default-dark.css';
+
   constructor() { }
 
   ngOnInit(): void {
+    const defaultTheme = document.querySelector('#theme');
+    const localStorageContains = localStorage.getItem('theme');
+    defaultTheme?.setAttribute('href', localStorageContains?localStorageContains:this.defaultUrlTheme);
   }
 
 }
